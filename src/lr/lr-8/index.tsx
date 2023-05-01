@@ -1,15 +1,11 @@
-import {Box, Card, Stack, TextField, Typography} from "@mui/material";
-import {BoxProps} from "@mui/material/Box/Box";
+import {Box, Stack, TextField, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import {SERVER_URL} from "../../consts";
-
-interface ILRProps extends BoxProps {
-
-}
+// @ts-nocheck
 
 const lr_server_url = SERVER_URL + "/lr-8/makeimage";
 
-export default function LR8({...props}: ILRProps) {
+export default function LR8() {
     const [width, setWidth] = useState(50);
     const [height, setHeight] = useState(50);
 
@@ -42,7 +38,7 @@ export default function LR8({...props}: ILRProps) {
                                onChange={(e) => setHeight(Number(e.target.value))}
                     />
                 </Stack>
-                <img src={imageSrc} alt="Fetched from endpoint" style={{width: 'auto', height: 'auto'}}/>
+                <img src={String(imageSrc)} alt="Fetched from endpoint" style={{width: 'auto', height: 'auto'}}/>
 
 
             </Stack>
